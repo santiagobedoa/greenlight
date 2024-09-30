@@ -5,6 +5,10 @@ import (
 	"net/http"
 )
 
+func (app *application) badRequestResponse(w http.ResponseWriter, r *http.Request, err error) {
+	app.errorResponse(w, r, http.StatusBadRequest, err.Error())
+}
+
 // The logError() method is a generic helper for logging an error message. Later in the
 // book we'll upgrade this to use structured logging, and record additional information
 // about the request including the HTTP method and URL.
